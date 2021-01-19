@@ -1,0 +1,13 @@
+<h1 class="home">Bem vindo ao Angular</h1>
+
+<p>Minha primeira página {{ numero1 + numero2 }}</p>
+
+<div>
+  <input type="text" [value]="nome" /> 
+</div>
+
+<app-exemplos-angular 
+[nomeAluno]=nome 
+(selecaoTurma)="alertaTurma($event)"
+[listaAlunos]="listagem"
+></app-exemplos-angular> <!--[nomeAluno]=nome cria um Input default, esse input precisa da anotation no app.component.ts - se tirar isso vai pegar o padrao do exemplos angular, mas se manter esse vai prevalescer -->
