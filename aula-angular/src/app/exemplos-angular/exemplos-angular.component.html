@@ -2,34 +2,14 @@
 
 <h2> da turma {{ turma }}</h2>
 
+
 <!-- com o two way data bind ao atualizar o nomeAluno de baixo vai atualizar o de cima tbm-->
 <input type="text" [(ngModel)]="nomeAluno" /> <!-- two way data bind-->
 
 <br><br>
 <input type="text" [value]="turma" #inputTurma /> <!-- property bind [value]--> <!-- #inputTurma � a criacao de uma vari�vel para o componente, para poder pegar no outro componente-->
 
-<button (click)="atualizaTurma(inputTurma.value)">Atualiza Turma</button> <!-- event bind (click)-->
-
-<br><br>
-<input type="text" (blur)="atualizaTurma($event?.target?.value)" /> <!--pra demonstrar que posso usar diversos eventos. $event.target encapsual o elemento-->
-
-
-
-<br><br>
-
-<br><br>
-
-<br><br>
-O de baixo esta ativado
-<br><br>
-
-<!-- com o two way data bind ao atualizar o nomeAluno de baixo vai atualizar o de cima tbm-->
-<input type="text" [(ngModel)]="nomeAluno" /> <!-- two way data bind-->
-
-<br><br>
-<input type="text" [value]="turma" #inputTurma2 /> <!-- property bind [value]--> <!-- #inputTurma � a criacao de uma vari�vel para o componente, para poder pegar no outro componente-->
-
-<button (click)="atualizaTurma(inputTurma2)">Atualiza Turma</button> <!-- event bind (click)-->
+<button (click)="atualizaTurma(inputTurmagit )">Atualiza Turma</button> <!-- event bind (click)-->
 
 <br><br>
 <input type="text" (blur)="atualizaTurma($event.target)" /> <!--pra demonstrar que posso usar diversos eventos. $event.target encapsual o elemento-->

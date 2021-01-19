@@ -10,7 +10,7 @@ const URL = 'http://api.com';
 })
 export class AppComponent {
   title = 'Teste Angular';
-  nome = 'Sobreescreve o nome do exemplo-angular';
+  nome = 'Sobreescrito';
 
   listagem: Alunos = [
     {nome:'Ricardo', dataNascimento : '1989-03-02'},
