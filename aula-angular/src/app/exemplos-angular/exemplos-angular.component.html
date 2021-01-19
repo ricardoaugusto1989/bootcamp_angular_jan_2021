@@ -9,7 +9,17 @@
 <br><br>
 <input type="text" [value]="turma" #inputTurma /> <!-- property bind [value]--> <!-- #inputTurma � a criacao de uma vari�vel para o componente, para poder pegar no outro componente-->
 
-<button (click)="atualizaTurma(inputTurmagit )">Atualiza Turma</button> <!-- event bind (click)-->
+<button (click)="atualizaTurma(inputTurma)">Atualiza Turma</button> <!-- event bind (click)-->
 
 <br><br>
 <input type="text" (blur)="atualizaTurma($event.target)" /> <!--pra demonstrar que posso usar diversos eventos. $event.target encapsual o elemento-->
+
+
+<div>
+    <ul>
+        <li *ngFor="let aluno of listaAlunos"> <!-- diretiva de repeticao do angular -->
+            Nome: {{aluno.nome}} |  Data Nascimento: {{aluno.dataNascimento}} 
+        </li>
+    </ul>
+</div>
+
