@@ -15,7 +15,7 @@
 <input type="text" (blur)="atualizaTurma($event.target)" /> <!--pra demonstrar que posso usar diversos eventos. $event.target encapsual o elemento-->
 
 <br><br>
-<button (click)="atualizaLista()">Atualiza Lista</button> <!-- event bind (click)-->
+<button (click)="atualizaLista()">{{ labelButtonLista }}</button> <!-- event bind (click)-->
 
 <div *ngIf="exibeLista">
     <ul>
