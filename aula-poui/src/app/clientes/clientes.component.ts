@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PoPageAction,PoBreadcrumbModule  ,PoTableColumn, PoBreadcrumb, PoTableAction } from '@po-ui/ng-components';
+import { Subscription } from 'rxjs';
 import { ClientesService } from './clientes.service';
 
 @Component({
@@ -7,7 +8,8 @@ import { ClientesService } from './clientes.service';
   templateUrl: './clientes.component.html',
   styleUrls: ['./clientes.component.css']
 })
-export class ClientesComponent implements OnInit {
+export class ClientesComponent implements OnInit, OnDestroy {
+  private subscriptions = new  Subscription();
 
   actions: Array<PoPageAction> = [
     {
@@ -36,11 +38,15 @@ export class ClientesComponent implements OnInit {
   constructor(private clientesService: ClientesService) { }
 
   ngOnInit(): void {
+     this.subscriptions.add(
       this.clientesService.retornaClientes().subscribe(
-        (api)=>{
-          this.items = api.items;
-        }
+        (api)=>{ this.items = api.items; }
+        )
       )
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   visualizar(){
