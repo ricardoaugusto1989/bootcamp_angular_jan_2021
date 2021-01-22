@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PoPageAction,PoBreadcrumbModule  ,PoTableColumn, PoBreadcrumb, PoTableAction } from '@po-ui/ng-components';
+import { ClientesService } from './clientes.service';
 
 @Component({
   selector: 'app-clientes',
@@ -32,9 +33,15 @@ export class ClientesComponent implements OnInit {
     { action: this.editar.bind(this), label:'Editar' },
   ];
 
-  constructor() { }
+  constructor(private clientesService: ClientesService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+      this.clientesService.retornaClientes().subscribe(
+        (api)=>{
+          this.items = api.items;
+        }
+      )
+  }
 
   visualizar(){
 
