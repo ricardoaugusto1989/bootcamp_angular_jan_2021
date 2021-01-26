@@ -40,7 +40,7 @@ export class ClientesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
      this.subscriptions.add(
       this.clientesService.retornaClientes().subscribe(
-        (api)=>{ this.items = api.items; }
+        (items)=>{ this.items = items; }
         )
       )
   }
